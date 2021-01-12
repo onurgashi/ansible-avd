@@ -2,6 +2,13 @@ port_profiles:
   TENANT_A_B:
     mode: trunk
     vlans: "110-111,210-211"
+    storm_control:
+      broadcast:
+        level: 10
+      multicast:
+        level: 10
+      unknown-unicast:
+        level: 10
 
   TENANT_A:
     mode: access
@@ -10,6 +17,13 @@ port_profiles:
   TENANT_B:
     mode: trunk
     vlans: "210-211"
+    storm_control:
+      broadcast:
+        level: 10
+      multicast:
+        level: 10
+      unknown-unicast:
+        level: 10
 
   ALL_WITH_SECURITY:
     mode: trunk

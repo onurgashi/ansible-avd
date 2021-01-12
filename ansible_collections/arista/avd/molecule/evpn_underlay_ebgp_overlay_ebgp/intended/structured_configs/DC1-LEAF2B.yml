@@ -241,6 +241,13 @@ port_channel_interfaces:
     vlans: 210-211
     mode: trunk
     mlag: 10
+    storm_control:
+      broadcast:
+        level: 10
+      multicast:
+        level: 10
+      unknown-unicast:
+        level: 10
 ethernet_interfaces:
   Ethernet1:
     peer: DC1-SPINE1
@@ -317,6 +324,13 @@ ethernet_interfaces:
     shutdown: false
     mode: trunk
     vlans: 210-211
+    storm_control:
+      broadcast:
+        level: 10
+      multicast:
+        level: 10
+      unknown-unicast:
+        level: 10
     channel_group:
       id: 10
       mode: active

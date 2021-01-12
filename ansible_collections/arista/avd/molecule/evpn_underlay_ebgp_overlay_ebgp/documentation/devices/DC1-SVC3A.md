@@ -613,6 +613,9 @@ interface Port-Channel10
    switchport trunk allowed vlan 110-111,210-211
    switchport mode trunk
    mlag 10
+   storm-control broadcast level 10
+   storm-control multicast level 10
+   storm-control unknown-unicast level 10
 ```
 
 ## Loopback Interfaces

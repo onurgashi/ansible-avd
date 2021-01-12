@@ -37,6 +37,16 @@
 {%                     if adapter.qos_profile | arista.avd.default(port_profiles[adapter.profile].qos_profile) is arista.avd.defined %}
     service_profile: {{ adapter.qos_profile | arista.avd.default(port_profiles[adapter.profile].qos_profile) }}
 {%                     endif %}
+{%                     if port_profiles[adapter.profile].storm_control is defined and port_profiles[adapter.profile].storm_control is not none %}
+    storm_control:
+{%                         for section in port_profiles[adapter.profile].storm_control %}
+      {{ section }}:
+        level: {{ port_profiles[adapter.profile].storm_control[section].level }}
+{%                             if port_profiles[adapter.profile].storm_control[section].unit is defined and port_profiles[adapter.profile].storm_control[section].unit is not none %}
+        unit: {{ port_profiles[adapter.profile].storm_control[section].unit }}
+{%                             endif %}
+{%                         endfor %}
+{%                     endif %}
 {%                 break %}
 {%                 endif %}
 {%             endfor %}
